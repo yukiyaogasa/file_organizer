@@ -15,7 +15,7 @@ module FileOrganizer
   
     def initialize(folder, filename)
       @old_dest = folder + filename
-      @organizable = Organizable.new(filename)
+      @organizable = Organizable.create(filename)
   
       yield self if block_given?
     end
