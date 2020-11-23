@@ -1,5 +1,13 @@
 ## 🧑🏻‍🔧 Buiding now...
 
+- [ ] 拡張子の対応
+  - [x] pic
+  - [x] doc
+  - [ ] screenshot
+  - [ ] other
+- [ ] ファイル名の自動変更
+- [ ] gem 化
+
 ## 🏌️ Goal
 
 - Download フォルダに保存されるファイルを自動で整理整頓する
