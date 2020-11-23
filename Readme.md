@@ -1,4 +1,4 @@
-## 🤩 Goal
+## 🏌️ Goal
 
 - Download フォルダに保存されるファイルを自動で整理整頓する
   - 拡張子毎にフォルダを用意
@@ -7,7 +7,7 @@
 ## 👀 Details
 
 - ファイル毎の移動先
-  - text, pdf → Document
+  - text, pdf → Documents
   - png, jpeg, svg → Pictures
   - other... → Unsorted
 
@@ -21,16 +21,14 @@
       - 拡張子を抜き取る
       - 拡張子毎にファイルに対応するフォルダを選択
 
-## 😵Questions
+## 🤔Questions
 
 - プログラムの常駐のさせ方
-  - Cron で毎回プログラムを起動させる？🤔
+  - Cron で毎回プログラムを起動させる？
 
 ## 🛠 Tools
 
-- Fssm
-
-[ttilley/fssm](https://github.com/ttilley/fssm)
+- Fssm ([ttilley/fssm](https://github.com/ttilley/fssm))
 
 ## 🔎 References
 
