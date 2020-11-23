@@ -41,16 +41,7 @@ module FileOrganizer
     end
 
     def folder_name
-      case file_type
-      when 'document'
-        'Documents'
-      when 'picture'
-        'Pictures'
-      when 'csv'
-        'Csvs'
-      else
-        'Others'
-      end
+      raise NotImplementedError, "#{self.class} must implement the following method(s) #{__method__}"
     end
   end
 end
