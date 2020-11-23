@@ -3,46 +3,45 @@ require 'pry'
 require 'fileutils'
 
 class FileOrganizer
-  attr_accessor :file_name, :tracking_folder, :old_dest, :organizable
+  attr_accessor :old_dest, :organizable
 
-  def self.organize(file_name, tracking_folder)
-    self.new(file_name, tracking_folder) do |organizer|
+  def self.organize(tracking_folder, filename)
+    self.new(filename, tracking_folder) do |organizer|
+      # p organizer.old_dest, organizer.organizable.new_dest
       FileUtils.mv(organizer.old_dest, organizer.organizable.new_dest)
     end
   end
 
   private
 
-  def initialize(file_name, tracking_folder)
-    @file_name = file_name
-    @tracking_folder = tracking_folder
-    @old_dest = tracking_folder + file_name
-    @organizable = Organizable.new(file_name)
+  def initialize(filename, tracking_folder)
+    @old_dest = tracking_folder + filename
+    @organizable = Organizable.new(filename)
 
     yield self if block_given?
   end
 end
 
 class Organizable
-  attr_accessor :file_name
+  attr_accessor :filename
 
   BASE_DIR = "/Users/#{`whoami`.chomp}"
   FILE_TYPE_ENUM = {
     document: ['text', 'txt', 'pdf']
   }
 
-  def initialize(file_name)
-    @file_name = file_name
+  def initialize(filename)
+    @filename = filename
   end
 
   def new_dest
-    "#{BASE_DIR}/#{folder_name}/#{file_name}"
+    "#{BASE_DIR}/#{folder_name}/#{filename}"
   end
   
   private
 
   def extention
-    @extention ||= File.extname(file_name).sub('.', '')
+    @extention ||= File.extname(filename).sub('.', '')
   end
 
   def file_type
@@ -72,48 +71,39 @@ end
 
 class FileObserver
   BASE_DIR = "/Users/#{`whoami`.chomp}"
-  FOLDER_TO_TRACK = "#{BASE_DIR}/downloads/"
 
-  def initialize
-    p "監視対象 #{FOLDER_TO_TRACK}"
-    FSSM.monitor(FOLDER_TO_TRACK,'**/*') do
-      create do |base,file|
-        open('log.txt', 'a'){|f|
-          f.puts base + "/"  + file + " was created at " + `date`
-        }
-        FileOrganizer.organize(file, FOLDER_TO_TRACK)
+  attr_reader :folder
+
+  def self.start(folder)
+    self.new(folder) do |observer|
+      p observer
+      p "Start observing #{observer.tracking_folder}..."
+      FSSM.monitor(observer.tracking_folder,'**/*') do
+        create do |base, filename|
+          observer.create_action(observer.tracking_folder, filename)
+        end
       end
-      # update do |base,file|
-      #   update_action(base, file)
-      # end
-      # delete do |base,file|
-      #   delete_action(base, file)
-      # end
     end
   end
 
-  def aa
-    p 'aa'
+  def tracking_folder
+    "#{BASE_DIR}/#{folder}/"
   end
 
-  def create_action(base, file)
+  def create_action(tracking_folder, filename)
     open('log.txt', 'a'){|f|
-      f.puts base + "/"  + file + " was created at " + `date`
+      f.puts tracking_folder  + filename + " was created at " + `date`
     }
-    FileOrganizer.organize(file, FOLDER_TO_TRACK)
+    FileOrganizer.organize(tracking_folder, filename)
   end
-  
-  # def update_action(base, file)
-  #   open('log.txt', 'a'){|f|
-  #     f.puts base + "/"  + file + " was updated at " + `date`
-  #   }
-  # end
-  
-  # def delete_action(base, file)
-  #   open('log.txt', 'a'){|f|
-  #     f.puts base + "/" + file + " was deleted at " + `date`
-  #   }
-  # end
+
+  private
+
+  def initialize(folder)
+    @folder = folder
+
+    yield self if block_given?
+  end
 end
 
-FileObserver.new
+FileObserver.start('downloads')
