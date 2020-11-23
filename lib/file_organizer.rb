@@ -5,8 +5,8 @@ require 'fileutils'
 class FileOrganizer
   attr_accessor :old_dest, :organizable
 
-  def self.organize(tracking_folder, filename)
-    self.new(filename, tracking_folder) do |organizer|
+  def self.organize(folder, filename)
+    self.new(folder, filename) do |organizer|
       # p organizer.old_dest, organizer.organizable.new_dest
       FileUtils.mv(organizer.old_dest, organizer.organizable.new_dest)
     end
@@ -14,8 +14,8 @@ class FileOrganizer
 
   private
 
-  def initialize(filename, tracking_folder)
-    @old_dest = tracking_folder + filename
+  def initialize(folder, filename)
+    @old_dest = folder + filename
     @organizable = Organizable.new(filename)
 
     yield self if block_given?
