@@ -28,9 +28,3 @@
 ## 🛠 Tools
 
 - Fssm ([ttilley/fssm](https://github.com/ttilley/fssm))
-
-## 🔎 References
-
-[https://www.virment.com/ruby-fssm/](https://www.virment.com/ruby-fssm/)
-
-[ディレクトリ内のファイル追加・削除・更新を監視する！ - 今からお前んちこいよ](https://www.hakopako.net/entry/2016/06/03/171853)
