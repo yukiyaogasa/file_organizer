@@ -2,7 +2,7 @@ require 'fssm'
 require './lib/file_organizer/organizer'
 
 module FileOrganizer
-  class FileOrganizer::FileObserver
+  class Observer
     BASE_DIR = "/Users/#{`whoami`.chomp}"
   
     attr_reader :folder
