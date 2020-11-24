@@ -36,10 +36,6 @@ module FileOrganizer
       @extention ||= File.extname(filename).sub('.', '')
     end
 
-    def extention
-      @extention ||= File.extname(filename).sub('.', '')
-    end
-
     def folder_name
       raise NotImplementedError, "#{self.class} must implement the following method(s) #{__method__}"
     end
