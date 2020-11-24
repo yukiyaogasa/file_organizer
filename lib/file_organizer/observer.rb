@@ -13,7 +13,7 @@ module FileOrganizer
         p observer
         p "Start observing #{observer.tracking_folder}..."
         FSSM.monitor(observer.tracking_folder,'**/*') do
-          create do |base, filename|
+          create do |_, filename|
             observer.create_action(observer.tracking_folder, filename)
           end
         end
