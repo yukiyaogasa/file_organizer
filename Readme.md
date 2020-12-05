@@ -1,15 +1,15 @@
-# FileOrganizer
+# file_organizer 📁
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/file_organizer`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-## 🏌️ Goal
+### 🏌️what is this?
 
 - 指定したフォルダに保存されるファイルを自動で整理整頓する
   - 拡張子毎に専用のフォルダに移動
   - 拡張子毎にファイル名を編集 [Todo]
     - ex: test.text -> 2020_11_23_test.txt
 
-## 👀 Details
+### 👀 Details
 
 - ファイル毎の移動先
   - text, pdf → Documents
