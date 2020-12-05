@@ -3,6 +3,7 @@ module FileOrganizer
     attr_accessor :filename
 
     BASE_DIR = "/Users/#{`whoami`.chomp}"
+
     FILE_TYPE_ENUM = {
       document: [/text/, /txt/, /pdf/],
       picture: [/png/, /ping/, /jpeg/, /jpg/, /gif/, /svg/],
@@ -27,6 +28,7 @@ module FileOrganizer
 
     def initialize(filename)
       @filename = filename
+
       create_dir_if_not_exist
     end
 
