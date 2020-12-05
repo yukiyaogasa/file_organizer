@@ -3,10 +3,10 @@
 - [ ] 拡張子の対応
   - [x] pic
   - [x] doc
-  - [ ] screenshot
+  - [x] screenshot
   - [ ] other
 - [ ] ファイル名の自動変更
-- [ ] gem 化
+- [x] gem 化
 
 ## 🏌️ Goal
 
