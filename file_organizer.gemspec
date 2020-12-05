@@ -1,7 +1,7 @@
 require_relative 'lib/file_organizer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "file_organizer"
+  spec.name          = "file_organizer_rubo"
   spec.version       = FileOrganizer::VERSION
   spec.authors       = ["y-o-anicca"]
   spec.email         = ["yodog712@gmail.com"]
@@ -11,8 +11,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/y-o-anicca/file_organizer"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/y-o-anicca/file_organizer"
