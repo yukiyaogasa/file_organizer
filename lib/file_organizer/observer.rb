@@ -16,7 +16,7 @@ module FileOrganizer
 
         FSSM.monitor(observer.tracking_folder,'**/*') do
           create do |_, filename|
-            observer.create_action(observer.tracking_folder, filename)
+            observer.create_action(filename)
           end
         end
       end
@@ -26,10 +26,10 @@ module FileOrganizer
       "#{BASE_DIR}/#{folder}/"
     end
   
-    def create_action(tracking_folder, filename)
-      open('log.txt', 'a'){|f|
-        f.puts tracking_folder  + filename + " was created at " + `date`
-      }
+    def create_action(filename)
+      # open('log.txt', 'a'){|f|
+      #   f.puts tracking_folder  + filename + " was created at " + `date`
+      # }
       Organizer.organize(tracking_folder, filename)
     end
   
