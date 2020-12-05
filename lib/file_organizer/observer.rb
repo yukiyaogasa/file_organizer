@@ -9,9 +9,11 @@ module FileOrganizer
   
     # デフォルトでdownloadsディレクトリを監視
     def self.start(folder = 'downloads')
+
       self.new(folder) do |observer|
-        p observer
+
         p "Start observing #{observer.tracking_folder}..."
+
         FSSM.monitor(observer.tracking_folder,'**/*') do
           create do |_, filename|
             observer.create_action(observer.tracking_folder, filename)
