@@ -5,16 +5,6 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 ### 🏌️what is this?
 
 - 指定したフォルダに保存されるファイルを自動で整理整頓する
-  - 拡張子毎に専用のフォルダに移動
-  - 拡張子毎にファイル名を編集 [Todo]
-    - ex: test.text -> 2020_11_23_test.txt
-
-### 👀 Details
-
-- ファイル毎の移動先
-  - text, pdf → Documents
-  - png, jpeg, svg → Pictures
-  - other... → Unsorted
 
 ## Installation
 
@@ -57,6 +47,13 @@ Everyone interacting in the FileOrganizer project's codebases, issue trackers, c
   - [ ] other
 - [ ] ファイル名の自動変更
 - [x] gem 化
+
+### 👀 Details
+
+- ファイル毎の移動先
+  - text, pdf → Documents
+  - png, jpeg, svg → Pictures
+  - other... → Unsorted
 
 **クラス**
 
