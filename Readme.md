@@ -6,7 +6,9 @@
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+bin/start
+```
 
 ## 🧑🏻‍🔧 Buiding now...
 
