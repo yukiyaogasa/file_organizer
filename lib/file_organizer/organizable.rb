@@ -53,6 +53,6 @@ module FileOrganizer
 end
 
 # サブクラスの呼び出し
-require 'file_organizer/organizable/document'
-require 'file_organizer/organizable/picture'
-require 'file_organizer/organizable/screenshot'
+require './lib/file_organizer/organizable/document'
+require './lib/file_organizer/organizable/picture'
+require './lib/file_organizer/organizable/screenshot'

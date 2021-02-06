@@ -1,5 +1,5 @@
 require 'fileutils'
-require 'file_organizer/organizable'
+require './lib/file_organizer/organizable'
 
 module FileOrganizer
   class Organizer

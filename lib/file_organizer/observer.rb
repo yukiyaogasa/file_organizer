@@ -1,5 +1,5 @@
 require 'fssm'
-require 'file_organizer/organizer'
+require './lib/file_organizer/organizer'
 
 module FileOrganizer
   class Observer
