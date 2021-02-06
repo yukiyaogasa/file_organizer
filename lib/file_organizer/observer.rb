@@ -27,9 +27,6 @@ module FileOrganizer
     end
   
     def create_action(filename)
-      # open('log.txt', 'a'){|f|
-      #   f.puts tracking_folder  + filename + " was created at " + `date`
-      # }
       Organizer.organize(tracking_folder, filename)
     end
   
